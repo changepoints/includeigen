@@ -27,7 +27,7 @@ conda install includeigen -c conda-forge
 - To change Eigen's version, checkout the submodule to the corresponding tag
   (e.g. `3.4`) and commit the change.
 
-- To release a new version, make a new Github release. The chosen tag will be
+- To release a new version, make a new github release. The chosen tag will be
   the version number.
 
 <!-- prettier-ignore-start -->
