@@ -15,7 +15,7 @@ __version__ = "0.1.0"
 __all__ = ("__version__", "get_include", "get_eigen_version")
 
 DIR = Path(__file__).parent.resolve()
-EIGEN_INCLUDE_DIR = DIR.parent.parent / "include" / "eigen"
+EIGEN_INCLUDE_DIR = DIR / "include" / "eigen"
 
 
 def get_include() -> str:
@@ -25,7 +25,10 @@ def get_include() -> str:
 
 def get_eigen_version() -> str:
     """Return the version of the linked Eigen library."""
+
+    # The version is available in the file "Macros.h"
     version_file = EIGEN_INCLUDE_DIR / "Eigen" / "src" / "Core" / "util" / "Macros.h"
+
     with version_file.open() as fp:
         source_code = "".join(fp.readlines())
 
