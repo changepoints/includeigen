@@ -8,7 +8,6 @@
 [![PyPI platforms][pypi-platforms]][pypi-link]
 
 [![GitHub Discussion][github-discussions-badge]][github-discussions-link]
-[![Gitter][gitter-badge]][gitter-link]
 
 <!-- prettier-ignore-start -->
 [actions-badge]:            https://github.com/changepoints/includeigen/workflows/CI/badge.svg
