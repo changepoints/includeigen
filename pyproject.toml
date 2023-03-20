@@ -1,56 +1,18 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-[project]
-name = "includeigen"
-authors = [
-  { name = "Charles Truong" },
-]
-description = "'includeigen` can be used by Python packages that require the C++ library `Eigen`. It includes a version of `Eigen`, and a `get_include` function that returns the path to the directory of the source code."
-readme = "README.md"
-requires-python = ">=3.7"
-classifiers = [
-  "Development Status :: 1 - Planning",
-  "Intended Audience :: Science/Research",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: BSD License",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.7",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Topic :: Scientific/Engineering",
-  "Typing :: Typed",
-]
-dynamic = ["version"]
-dependencies = [
-  "typing_extensions >=3.7; python_version<'3.8'",
-]
+requires = ["setuptools>=42", "setuptools_scm[toml]>=3.4"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools_scm]
+write_to = "src/includeigen/_version.py"
 
-[project.optional-dependencies]
-test = [
-  "pytest >=6",
-  "pytest-cov >=3",
-]
-dev = [
-  "pytest >=6",
-  "pytest-cov >=3",
-]
 
-[project.urls]
-Homepage = "https://github.com/changepoints/includeigen"
-"Bug Tracker" = "https://github.com/changepoints/includeigen/issues"
-Discussions = "https://github.com/changepoints/includeigen/discussions"
-Changelog = "https://github.com/changepoints/includeigen/releases"
-[tool.hatch]
-version.path = "src/includeigen/__init__.py"
-envs.default.dependencies = [
-  "pytest",
-  "pytest-cov",
+[tool.check-manifest]
+ignore = [
+  ".github/**",
+  "docs/**",
+  ".pre-commit-config.yaml",
+  ".readthedocs.yml",
+  "src/*/_version.py",
+  "noxfile.py",
 ]
 
 
@@ -63,17 +25,6 @@ log_cli_level = "INFO"
 testpaths = [
   "tests",
 ]
-
-
-[tool.mypy]
-files = "src"
-python_version = "3.7"
-warn_unused_configs = true
-strict = true
-show_error_codes = true
-enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
-warn_unreachable = true
-
 
 [tool.ruff]
 select = [
