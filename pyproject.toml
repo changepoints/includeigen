@@ -12,7 +12,7 @@ repository = "https://github.com/changepoints/includeigen"
 license = "BSD-3-Clause"
 description = " 'includeigen` can be used by Python packages that require the C++ library `Eigen`. It includes a version of `Eigen`, and a `get_include` function that returns the path to the directory of the source code."
 readme = "README.md"
-include = "src/includeigen/include"
+include = ["src/includeigen/include"]
 
 classifiers = [
   "Development Status :: 1 - Planning",
