@@ -1,23 +1,19 @@
 from __future__ import annotations
 
-import includeigen as m
-from includeigen._compat.typing import Protocol, runtime_checkable
+import includeigen
 
 
 def test_version():
-    assert m.__version__
+    assert includeigen.__version__
 
 
-@runtime_checkable
-class HasQuack(Protocol):
-    def quack() -> str:
-        ...
+def test_get_eigen_version():
+    assert isinstance(
+        includeigen.get_eigen_version(), str
+    ), f"The version is not a string: {includeigen.get_eigen_version()}"
 
 
-class Duck:
-    def quack() -> str:
-        return "quack"
-
-
-def test_has_typing():
-    assert isinstance(Duck(), HasQuack)
+def test_get_include():
+    assert isinstance(
+        includeigen.get_include(), str
+    ), f"The include path is not a string: {includeigen.get_include()}"
