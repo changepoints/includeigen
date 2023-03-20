@@ -1,1 +1,1 @@
-recursive-include src *
+graft src/include/*
