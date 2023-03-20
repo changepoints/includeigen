@@ -6,6 +6,30 @@
 `Eigen`. It includes a version of `Eigen`, and a `get_include` function that
 returns the path to the directory of the source code.
 
+Currently, the version of Eigen is 3.4.0.
+
+### Install
+
+The `includeigen` is available on Pypi and conda-forge. Simply execute
+
+```bash
+python -m pip install includeigen
+```
+
+or
+
+```bash
+conda install includeigen -c conda-forge
+```
+
+### Developer's Corner
+
+- To change Eigen's version, checkout the submodule to the corresponding tag
+  (e.g. `3.4`) and commit the change.
+
+- To release a new version, make a new Github release. The chosen tag will be
+  the version number.
+
 <!-- prettier-ignore-start -->
 [actions-badge]:            https://github.com/changepoints/includeigen/workflows/CI/badge.svg
 [actions-link]:             https://github.com/changepoints/includeigen/actions

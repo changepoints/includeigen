@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-__version__ = "0.1.0"
+from .version import version as __version__
 
 __all__ = ("__version__", "get_include", "get_eigen_version")
 
