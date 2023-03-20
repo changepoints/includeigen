@@ -1,41 +1,20 @@
 [build-system]
-requires = ["poetry_core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-[tool.poetry]
-name = "includeigen"
-version = "0.1.0"
-authors = [
-  "Charles Truong",
-]
-homepage = "https://github.com/changepoints/includeigen"
-repository = "https://github.com/changepoints/includeigen"
-license = "BSD-3-Clause"
-description = " 'includeigen` can be used by Python packages that require the C++ library `Eigen`. It includes a version of `Eigen`, and a `get_include` function that returns the path to the directory of the source code."
-readme = "README.md"
-include = ["src/includeigen/include"]
+requires = ["setuptools>=42", "setuptools_scm[toml]>=3.4"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools_scm]
+write_to = "src/includeigen/_version.py"
 
-classifiers = [
-  "Development Status :: 1 - Planning",
-  "Intended Audience :: Science/Research",
-  "Intended Audience :: Developers",
-  "Operating System :: OS Independent",
-  "Topic :: Scientific/Engineering",
-  "Typing :: Typed",
+
+[tool.check-manifest]
+ignore = [
+  ".github/**",
+  "docs/**",
+  ".pre-commit-config.yaml",
+  ".readthedocs.yml",
+  "src/*/_version.py",
+  "noxfile.py",
 ]
 
-[tool.poetry.dependencies]
-python = ">=3.7"
-typing_extensions = { version = ">=3.7", python = "<3.8" }
-pytest = { version = ">=6", optional = true }
-pytest-cov = { version = ">=3", optional = true }
-
-[tool.poetry.dev-dependencies]
-pytest = ">= 6"
-pytest-cov = ">= 3"
-
-[tool.poetry.extras]
-test = ["pytest", "pytest-cov"]
-dev = ["pytest", "pytest-cov"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
@@ -46,7 +25,6 @@ log_cli_level = "INFO"
 testpaths = [
   "tests",
 ]
-
 
 [tool.ruff]
 select = [
